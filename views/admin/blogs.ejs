@@ -1,0 +1,57 @@
+<%- include('../partials/head', {title: 'Admin Panel'}) %>
+<%- include('../partials/adminnav') %>
+<%- include('../partials/flash') %>
+<div class="formContainer">
+
+
+ <form action="/blog" method="post" class="formStyles" enctype="multipart/form-data">
+    
+    <label class="form-label" for="name">Name</label>
+    <input id="name" type="text" name="name" placeholder="Blog name" class="form-control" />
+    <label class="form-label" for="description">Description</label>
+    <input id="description" type="text" name="description" placeholder="Lorem Ipsum is simply..." class="form-control" />
+    <label class="form-label" for="Date">Date</label>
+    <input id="date" type="text" name="date" placeholder="10 SEP 2023" class="form-control" />
+    <label class="form-label" for="url">Blog URL</label>
+    <input id="url" type="text" name="url" placeholder="https://www.instagram.com/watch?...." class="form-control" />
+    <label class="form-label" for="from">From</label>
+    <input id="from" type="text" name="from" placeholder="Noor" class="form-control" />
+    <label class="form-label" for="file">Image</label>
+    <input id="image" type="file" name="image"  accept="image/*"  class="form-control" />
+    <button class="btn btn-success mt-3 w-100" type="submit">Save</button>
+  </form>
+</div>
+<div class="centeredContainer">
+  <h1 class="centeredHeading">Previous Posts</h1>
+</div>
+<div class="previousSection">
+  <% if(blogs.length) {%>
+  <div class="contentWrapper">
+    <% blogs.map(({name, _id, description,date, from,imagePath, url}) => { %>
+    <div class="post">
+      <div style="width: 300px; height: 300px;">
+        <img style="width: 100%; height: auto;" src="<%=imagePath %>" alt="">
+      
+      </div>
+     <div class="imgContent">
+        <p class="mainTitle">Name: <%= name %></p>
+        <p class="description">Des: <%= description %></p>
+        <p class="mainTitle">Date: <%= date %></p>
+        <p class="description">URL: <%= url %></p>
+        <span class="mainTitle">From: <%= from %></span>
+        <!-- <p class="date">5/27/15</p> -->
+      </div>
+      <div class="buttonWrapper">
+        <a href="/blog/edit/<%= _id %>" class="btn btn-warning">Edit</a>
+        <form action="/blog/delete/<%= _id %>" method="post">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+  <% }else{ %>
+  <p class="centeredText">No post found!</p>
+  <% } %>
+</div>
+<%- include('../partials/body') %>

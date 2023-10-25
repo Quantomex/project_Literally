@@ -1,0 +1,51 @@
+<%- include('../partials/pghead') %>
+    <div class="blogDetailFirstDiv">
+        <%- include('../partials/homenav') %>
+        <div class="yellowDivBlogDetail">
+        </div>
+        <h1 class="blogDetailFirstDivHeading">Watch our Latest Podcast</h1>
+        <img class="imgClass" src="/images/Rectangle 3.png" alt="">
+    </div>
+    <div  class="searchAndSelect">
+        
+         <div class="searchBlogDetail">  <input  type="search" name="" id=""> <button class="searchButtonBlog">Search</button></div>
+         <div>
+            <select class="selectorBlog" name="cars" id="cars">
+            <option value="volvo">Sort By</option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+          </select>
+       
+    </div>
+    </div>
+<!-- Other Data -->
+
+<div class="enclosedLatestPodcastDivs">
+    <% PodcastPosts.map(({name, description ,detail,url, view,imagePath,heart}) => { %>
+        <div class="latestPodcastContentContainer">
+  
+          <h1 class="especialClassCounter"></h1>
+  
+         <a href="<%=url %>" target="_blank"> <img class="imgLatestPodcast" src="<%=imagePath %>" alt=""> </a>
+  
+          <div class="contentPartLatestPodcast">
+            <h2 class="latestPodcastContentHeading"><%=name %></h2>
+  
+            <p class="latestPodcastContentPara"><%=description %></p>
+  
+            <h3 class="latestPdcastDetail"><%=detail %></h3>
+  
+            <div class="likeAndListen">
+              <p><i class='bx bxs-heart' style='color:#f7cd1e'></i> <%=heart %></p>
+              <p><i class='bx bx-headphone' style='color:#f7cd1e'></i> <%=view %></p>
+  
+            </div>
+          </div>
+        </div>
+        <% }) %>
+  
+
+
+</div>
+<%- include('../partials/footer') %>

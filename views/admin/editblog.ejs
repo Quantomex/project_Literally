@@ -1,0 +1,23 @@
+<%- include('../partials/head', {title: 'Admin Panel'}) %>
+<%- include('../partials/adminnav') %>
+<%- include('../partials/flash') %>
+<div class="formContainer">
+  <form action="/blog/<%= blog._id %>" method="post" class="formStyles" enctype="multipart/form-data">
+    
+    <label class="form-label" for="name">Name</label>
+    <input id="name" type="text" name="name" value="<%= blog.name %>"  placeholder="Blog name" class="form-control" />
+    <label class="form-label" for="description">Description</label>
+    <input id="description" type="text" value="<%= blog.description %>" name="description" placeholder="Lorem Ipsum is simply..." class="form-control" />
+    <label class="form-label" for="date">Date</label>
+    <input id="date" type="text" value="<%= blog.date %>" name="date" placeholder="10 SEP 2023" class="form-control" />
+    <label class="form-label" for="url">Blog URL</label>
+    <input id="url" type="text" value="<%= blog.url %>" name="url" placeholder="https://www.instagram.com/watch?...." class="form-control" />
+    <label class="form-label" for="from">From</label>
+    <input id="from" type="text" value="<%= blog.from %>" name="from" placeholder="Noor" class="form-control" />
+    <label class="form-label" for="file">Image</label>
+    <input id="image" type="file" name="image"  accept="image/*"  class="form-control" />
+    <button class="btn btn-success mt-3 w-100" type="submit">Save</button>
+  </form>
+  
+  </div>
+<%- include('../partials/body') %>

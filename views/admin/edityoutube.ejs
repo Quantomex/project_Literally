@@ -1,0 +1,25 @@
+<%- include('../partials/head', {title: 'Admin Panel'}) %>
+<%- include('../partials/adminnav') %>
+<%- include('../partials/flash') %>
+<div class="formContainer">
+
+ <form action="/youtube/<%= post._id %>" method="post" class="formStyles" enctype="multipart/form-data">
+    
+    <label class="form-label" for="name">Name</label>
+    <input id="name" type="text" name="name" value="<%-post.name %>" placeholder="Podcast name" class="form-control" />
+    <label class="form-label" for="description">Description</label>
+    <input id="description" type="text" name="description" value="<%-post.description %>" placeholder="Lorem Ipsum is simply..." class="form-control" />
+    <label class="form-label" for="detail">Details</label>
+    <input id="detail" type="text" name="detail" value="<%-post.detail %>" placeholder="10 SEP, 2023 - 30 min - 9 Episode" class="form-control" />
+    <label class="form-label" for="url">Youtube URL</label>
+    <input id="url" type="text" name="url" value="<%-post.url %>" placeholder="https://www.youtube.com/watch?...." class="form-control" />
+    <label class="form-label" for="heart">Hearts</label>
+    <input id="heart" type="text" name="heart" value="<%-post.heart %>" placeholder="10.5K" class="form-control" />
+    <label class="form-label" for="view">Views</label>
+    <input id="view" type="text" name="view" value="<%-post.view %>" placeholder="10.5K" class="form-control" />
+    <label class="form-label" for="file">Image</label>
+    <input id="image" type="file" name="image"  accept="image/*"  class="form-control" />
+    <button class="btn btn-success mt-3 w-100" type="submit">Save</button>
+  </form>
+</div>
+<%- include('../partials/body') %>

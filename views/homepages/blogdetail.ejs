@@ -1,0 +1,71 @@
+
+<%- include('../partials/pghead') %>
+    <div class="blogDetailFirstDiv">
+        <%- include('../partials/homenav') %>
+        <div class="yellowDivBlogDetail">
+        </div>
+        <h1 class="blogDetailFirstDivHeading">Read our Latest Blogs </h1>
+        <img class="imgClass" src="/images/Rectangle 3.png" alt="">
+    </div>
+    <div class="searchAndSelect">
+
+        <div class="searchBlogDetail"> <input type="search" name="" id=""> <button
+                class="searchButtonBlog">Search</button></div>
+        <div>
+            <select class="selectorBlog" name="cars" id="cars">
+                <option value="volvo">Sort By</option>
+                <option value="saab">Saab</option>
+                <option value="opel">Opel</option>
+                <option value="audi">Audi</option>
+            </select>
+
+        </div>
+    </div>
+
+    <!-- DATa -->
+  
+    <div class="mainDataDivEnclosed">
+        <div class="most-recent-div">
+            <h2 class="mostReadHeading">Most read blogs</h2>
+            <div class="mostReadBlog">
+                <% blogs.map(({name, description ,date,url, from,imagePath}) => { %>
+                <div class="dataEnclosedMostRead">
+                    <img class="mostReadingImg" src="<%=imagePath %>" alt="">
+                    <div class="mostReadText">
+                        <h4><%=name %></h4>
+                        <h5><%=description %></h5>
+                    </div>
+                </div>
+                <% }) %>
+          
+            </div>
+        </div>
+    
+        <% blogs.map(({name, description ,date,url, from,imagePath}) => { %>
+            <div class="dataDivContainer">
+              <img class="imgContainer" src="<%=imagePath %>" alt="">
+              <div class="headingdataDiv">
+                <h2><%=name %></h2>
+                <h3><%=date %></h3>
+              </div>
+              <p class="textgdataDiv"><%=description %></p>
+              <div class="bottomdataDiv">
+                <h2><%=from %></h2>
+                <a href="<%=url%>" target="_blank">
+                <h3>Read more <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path d="M9 0L7.41375 1.58625L13.6912 7.875H0V10.125H13.6912L7.41375 16.4137L9 18L18 9L9 0Z"
+                      fill="#F7CD1E" />
+                  </svg></h3> </a>
+              </div>
+            </div>
+            <% }) %>
+    
+ 
+       
+     
+        
+ 
+
+    </div>
+
+    <%- include('../partials/footer') %>

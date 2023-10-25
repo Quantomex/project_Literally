@@ -1,0 +1,18 @@
+<%- include('../partials/head', {title: 'Admin Panel'}) %>
+<%- include('../partials/adminnav') %>
+<%- include('../partials/flash') %>
+<div class="formContainer">
+
+  
+  <form action="/instagram/<%= post._id %>" method="post" class="formStyles" enctype="multipart/form-data">
+    
+    <label class="form-label" for="name">Name</label>
+    <input id="name" type="text" name="name"  value="<%-post.name %>" placeholder="Marketing" class="form-control" />
+    <label class="form-label" for="description">Description</label>
+    <input id="description" type="text"  value="<%-post.description %>" name="description" placeholder="Over 10 years..." class="form-control" />
+    <label class="form-label" for="file">Background Image</label>
+    <input id="image" type="file" name="image"  accept="image/*"  class="form-control" />
+    <button class="btn btn-success mt-3 w-100" type="submit">Save</button>
+  </form>
+</div>
+<%- include('../partials/body') %>
